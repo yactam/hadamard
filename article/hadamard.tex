@@ -1,5 +1,7 @@
 \documentclass{article}
 
+\usepackage[skip=20pt, indent=0pt]{parskip}
+
 \author{TAMDRARI Yacine}
 \title{Le code de Hadamard}
 
@@ -10,7 +12,10 @@
 \tableofcontents
 \newpage
 
-\section{Definition}
+\section{Introduction}
+
+\subsection{Definition}
+
 Le code de Hadamard nommé d'aprés le mathématicien Français Jacques 
 Hadamard est un code correcteur d'erreur linéaire (le plus connu mais il 
 existe des codes de Hadamard non linéaire) utilisé dans plusieurs 
@@ -18,6 +23,8 @@ domaines tels que le traitement de signal, le cryptage et la
 télécommunication; il a été utilisé le 14 novembre 1971 pendant la mission
 du visseau spataial Mariner 9 pour corriger les erreurs de transmission des
 images depuis l'orbite de Mars.
+
+\subsection{Le code de Hadamard en théorie}
 
 Le code de Hadamard est un code sur un alphabet de taille $2^k$ ou k est un
 entier positif, chaque mot du code a une longueur de k bits donc pour coder
@@ -38,7 +45,8 @@ corruption d'une information est trés grand; dans la notation standard de
 la théorie du codage pour les codes en bloc on note ceci avec 
 $[2^k, k, 2^{k-1}]_2$.
 
-\section{Un peu d'histoire}
+\subsection{Un peu d'histoire}
+
 Le code de Hadamard est le nom le plus couramment utilisé pour ce code dans
 la littérature bien que Jacques Hadamard n'a pas inventé le code de 
 lui-meme mais il a initié les bases de ce code en déffinissant les matrices
@@ -50,6 +58,8 @@ utilisée est celle définie par James Joseph Sylvester en 1867 qui est en
 fait antérieure aux travaux d'Hadamard sur ses matrices, des codes 
 d'Hadamard non linéaires ont été construit par R. C. Bose et S. S. 
 Shrikhande en 1959.
+
+\subsection{Application dans la vie réelle}
 
 Un code Hadamard a été utilisé lors de la mission Mariner 9 de 1971 pour
 corriger les erreurs de transmission d'images; les mots de données 
@@ -68,5 +78,17 @@ Depuis les années 1990, l'utilisation de ce code par les programmes
 spatiaux a plus ou moins cessé, et le Deep Space Network ne prend pas en 
 charge ce système de correction d'erreurs pour ses antennes paraboliques.
 mesurent plus de 26 m.
+
+\section{Les matrices d'Hadamard}
+
+\subsection{Construction}
+
+\subsection{Propriétés}
+
+\section{Codage}
+
+\section{Decodage}
+
+\section{Conclusion}
 
 \end{document}
