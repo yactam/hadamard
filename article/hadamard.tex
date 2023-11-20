@@ -6,10 +6,14 @@
 \begin{document}
 
 \maketitle
+\titlepage
+\tableofcontents
+\newpage
 
 \section{Definition}
 Le code de Hadamard nommé d'aprés le mathématicien Français Jacques 
-Hadamard est un code correcteur d'erreur linéaire utilisé dans plusieurs 
+Hadamard est un code correcteur d'erreur linéaire (le plus connu mais il 
+existe des codes de Hadamard non linéaire) utilisé dans plusieurs 
 domaines tels que le traitement de signal, le cryptage et la 
 télécommunication; il a été utilisé le 14 novembre 1971 pendant la mission
 du visseau spataial Mariner 9 pour corriger les erreurs de transmission des
@@ -22,16 +26,47 @@ de code sur $2^k$ bits, ceci implique que pour transférer k bits
 d'informations avec ce code le taux de transfert sera /frac{k}{$2^k$} qui 
 est extrêmement faible donc rends le temps de transmission des informations
 lent, mais le code est couramment utilisé à cause de sa capacité à détecter
-toutes les erreurs simples car la distance de Hamming (le nombre de bits 
-différents entre deux mots de code binaires qui peut etre trouvé en sommant
-les résultats des XOR bit à bit des deux mots de code) entre deux séquences
-de code est $\frac{n}{2}$ = $\frac{2^k}{2}$ = $2^{k-1}$ cela signifie que 
-le code serait capable de détecter jusqu'à $2^{k-1}$ erreurs simples, un 
-code correcteur à une distance de Hamming d est capable de corriger 
-$\frac{d-1}{2}$ erreurs ce qui donne $\frac{2^{k-1}-1}{2}$ pour le code de 
-Hadamard (pour avoir une correction il faut que k > 2 donc ce code serait 
-fiable sur des canaux trés bruyants sur lequels le risque de corruption 
-d'une information est trés grand; dans la notation standard de la théorie 
-du codage pour les codes en bloc on note ceci avec $[2^k, k, 2^{k-1}]_2$
+toutes les erreurs simples car la distance de Hamming\footnote{le nombre 
+de bits différents entre deux mots de code binaires qui peut etre trouvé en
+sommant les résultats des XOR bit à bit des deux mots de code} entre deux séquences de code est $\frac{n}{2}$ = $\frac{2^k}{2}$ = $2^{k-1}$ cela 
+signifie que le code serait capable de détecter jusqu'à $2^{k-1}$ erreurs 
+simples, un code correcteur à une distance de Hamming d est capable de 
+corriger $\frac{d-1}{2}$ erreurs ce qui donne $\frac{2^{k-1}-1}{2}$ pour le
+code de Hadamard (pour avoir une correction il faut que k > 2 donc ce code 
+serait fiable sur des canaux trés bruyants sur lequels le risque de 
+corruption d'une information est trés grand; dans la notation standard de 
+la théorie du codage pour les codes en bloc on note ceci avec 
+$[2^k, k, 2^{k-1}]_2$.
+
+\section{Un peu d'histoire}
+Le code de Hadamard est le nom le plus couramment utilisé pour ce code dans
+la littérature bien que Jacques Hadamard n'a pas inventé le code de 
+lui-meme mais il a initié les bases de ce code en déffinissant les matrices
+d'Hadamard vers 1893, bien avant que le premier code correcteur d'erreurs
+(le code de Hamming vers 1940) ne soit développé.
+
+Il existe plusieurs construction des matrices d'Hadamard mais la plus 
+utilisée est celle définie par James Joseph Sylvester en 1867 qui est en 
+fait antérieure aux travaux d'Hadamard sur ses matrices, des codes 
+d'Hadamard non linéaires ont été construit par R. C. Bose et S. S. 
+Shrikhande en 1959.
+
+Un code Hadamard a été utilisé lors de la mission Mariner 9 de 1971 pour
+corriger les erreurs de transmission d'images; les mots de données 
+utilisés au cours de cette mission étaient de 6 bits, ce qui représentait 
+64 valeurs en niveaux de gris.En raison des limitations de la qualité de 
+l'alignement de l'émetteur, la longueur maximale des données utiles était 
+environ 30 bits.Au lieu d'utiliser un code de répition, un code Hadamard
+a été utilisé.Des erreurs allant jusqu'à 7 bits par mot pourraient etre 
+corrigées à l'aide de ce code; par rapport à un code à 5 répétitions, les
+propriétés de correction d'erreurs de ce code Hadamard sont bien meilleures
+mais son taux est comparable.L’efficacité de l’algorithme de décodage a été
+un facteur important dans la décision d’utiliser ce code.Le circuit 
+utilisé s'appelait la \textbf{machine verte}.Il utilisait la transformée de
+Fourier rapide qui peut augmenter la vitesse de décodage d'un facteur 3.
+Depuis les années 1990, l'utilisation de ce code par les programmes 
+spatiaux a plus ou moins cessé, et le Deep Space Network ne prend pas en 
+charge ce système de correction d'erreurs pour ses antennes paraboliques.
+mesurent plus de 26 m.
 
 \end{document}
