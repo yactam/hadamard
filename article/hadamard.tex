@@ -8,6 +8,30 @@
 \maketitle
 
 \section{Definition}
+Le code de Hadamard nommé d'aprés le mathématicien Français Jacques 
+Hadamard est un code correcteur d'erreur linéaire utilisé dans plusieurs 
+domaines tels que le traitement de signal, le cryptage et la 
+télécommunication; il a été utilisé le 14 novembre 1971 pendant la mission
+du visseau spataial Mariner 9 pour corriger les erreurs de transmission des
+images depuis l'orbite de Mars.
 
+Le code de Hadamard est un code sur un alphabet de taille $2^k$ ou k est un
+entier positif, chaque mot du code a une longueur de k bits donc pour coder
+une information avec k bits le code ajoute $2^k$-k bits pour former un mot
+de code sur $2^k$ bits, ceci implique que pour transférer k bits 
+d'informations avec ce code le taux de transfert sera /frac{k}{$2^k$} qui 
+est extrêmement faible donc rends le temps de transmission des informations
+lent, mais le code est couramment utilisé à cause de sa capacité à détecter
+toutes les erreurs simples car la distance de Hamming (le nombre de bits 
+différents entre deux mots de code binaires qui peut etre trouvé en sommant
+les résultats des XOR bit à bit des deux mots de code) entre deux séquences
+de code est $\frac{n}{2}$ = $\frac{2^k}{2}$ = $2^{k-1}$ cela signifie que 
+le code serait capable de détecter jusqu'à $2^{k-1}$ erreurs simples, un 
+code correcteur à une distance de Hamming d est capable de corriger 
+$\frac{d-1}{2}$ erreurs ce qui donne $\frac{2^{k-1}-1}{2}$ pour le code de 
+Hadamard (pour avoir une correction il faut que k > 2 donc ce code serait 
+fiable sur des canaux trés bruyants sur lequels le risque de corruption 
+d'une information est trés grand; dans la notation standard de la théorie 
+du codage pour les codes en bloc on note ceci avec $[2^k, k, 2^{k-1}]_2$
 
 \end{document}
