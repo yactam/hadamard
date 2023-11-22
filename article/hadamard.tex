@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage[skip=20pt, indent=0pt]{parskip}
+\usepackage{amsmath, eqparbox, bm, mathtools, tensor}
 
 \author{TAMDRARI Yacine}
 \title{Le code de Hadamard}
@@ -82,7 +83,7 @@ mesurent plus de 26 m.
 \section{Les matrices d'Hadamard}
 
 \subsection{Introduction}
-Une matrice Hadamard est une matrice carré de taille n*n avec des entrées 
+Une matrice Hadamard est une matrice carré de taille $n*n$ avec des entrées
 dans l'ensemble \{-1; 1\} qui a plein de propriétés que nous détailleront 
 dans la suite de cet article.
 
@@ -99,8 +100,137 @@ La conjuncture de Hadamard annonce que pour tout nombre naturel n, il
 existe une matrice d'Hadamard d'ordre $4*n$, reste l'un des grands 
 problémes non résolus de mathématiques; detaillons quelques propriétés de 
 ces matrices et les méthodes de leurs constructions.
+\newpage
+\textbf{example:} Les matrices d'Hadamard d'ordre 2 et 4:\\
+
+\begin{equation*}
+\mathcal{H}_2 = \begin{bmatrix}
+	1 & 1\\
+	1 & -1
+\end{bmatrix}
+\quad
+\mathcal{H}_4 = \begin{bmatrix}
+	1 & 1 & 1 & 1\\
+	1 & -1 & 1 & -1\\
+	1 & 1 & -1 & -1\\
+	1 & -1 & -1 & 1
+\end{bmatrix}
+\end{equation*}
 
 \subsection{Propriétés}
+
+\subsubsection{Orthogonalité}
+
+Chaque ligne et chaque colonne d'une matrice de Hadamard sont orthogonales
+entre elles c'est à dire le resultat du produit scalaire de chaque deux 
+lignes ou de chaque deux colonnes est nul.
+
+Par exemple l'orthogonalité entre la premiére ligne de $\mathcal{H}_4$ et 
+la troisième ligne de la meme matrice est:
+\begin{equation*}
+	\begin{pmatrix}
+		1\\
+		1\\
+		1\\ 
+		1
+	\end {pmatrix}
+	.
+	\begin{pmatrix}
+		1 & 1 & -1 & -1\\ 
+	\end{pmatrix}
+	= 1*1+1*1+1*(-1)+1*(-1) = 0. 
+\end{equation*}
+
+\subsubsection{La transposée d'une matrice Hadamard}
+
+Toutes les matrices d'Hadamard ont la propriété suivante:
+\begin{equation}\label{eq:transposée}
+	\mathcal{H}_n . \mathcal{H}_{n}^{\mathcal{T}} =
+	\mathcal{H}_{n}^{\mathcal{T}}. \mathcal{H}_n = n.\mathcal{I}
+\end{equation}
+ou $\mathcal{I}$ est la matrice identité de taille n et 
+$\mathcal{H}_{n}^{\mathcal{T}}$ la transposée de $\mathcal{H}_n$.
+
+Par exemple:
+\begin{equation*}
+	\mathcal{H}_2 . \mathcal{H}_{2}^{\mathcal{T}} =
+	\begin{bmatrix}
+		1 & 1\\
+		1 & -1
+	\end{bmatrix}
+	.
+	\begin{bmatrix}
+		1 & 1\\
+		1 & -1
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		2 & 0\\
+		0 & 2
+	\end{bmatrix}
+	= 2 . \mathcal{I}
+\end{equation*}
+
+\subsubsection{L'inverse d'une matrice Hadamard}
+
+Il est facile de trouver l'inverse d'une matrice Hadamard, en effet d'aprés
+l'équation (\ref{eq:transposée}):
+\begin{equation*}
+	\mathcal{H}_n . \mathcal{H}_{n}^{\mathcal{T}} = n * \mathcal{I}
+	\quad
+	donc 
+	\quad
+	\mathcal{H}_n . \frac{1}{n}*\mathcal{H}_{n}^{\mathcal{T}} = \mathcal{I}
+	\quad
+	\text{d'ou le résultat:} 
+\end{equation*}
+\begin{equation}\label{eq:inverse}
+	\mathcal{H}_{n}^{-1} =  \frac{1}{n}*\mathcal{H}_{n}^{\mathcal{T}}
+\end{equation}
+
+\subsubsection{Produit de Hadamard}
+
+Le produit de Hadamard est une opération binaire qui pour deux matrices de
+meme dimensions, associe une autre matrice de meme dimension, formellement:
+\begin{equation*}
+	\begin{bmatrix}
+		a_{1,1} & a_{1,2} & \cdots & a_{1,m}\\
+		a_{2,1} & a_{2,2} & \cdots & a_{2,m}\\
+		\vdots & \vdots & \ddots & \vdots\\
+		a_{n,1} & a_{n,2} & \cdots & a_{n,m}
+	\end{bmatrix}
+	o
+	\begin{bmatrix}
+		b_{1,1} & b_{1,2} & \cdots & b_{1,m}\\
+		b_{2,1} & b_{2,2} & \cdots & b_{2,m}\\
+		\vdots & \vdots & \ddots & \vdots\\
+		b_{n,1} & b_{n,2} & \cdots & b_{n,m}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		a_{1,1}*b_{1,1} & a_{1,2}*b_{1,2} & \cdots & a_{1,m}*b_{1,m}\\
+		a_{2,1}*b_{2,1} & a_{2,2}*b_{2,2} & \cdots & a_{2,m}*b_{2,m}\\
+		\vdots & \vdots & \ddots & \vdots\\
+		a_{n,1}*b_{n,2} & a_{n,2}*b_{n,2} & \cdots & a_{n,m}*b_{n,m}
+	\end{bmatrix}
+\end{equation*}
+
+Le produit matriciel de Hadamard est associatif et distributif, et 
+contrairement au produit matriciel classique, commutatif. 
+
+Le produit de deux matrices Hadamard est une matrice Hadamardo.
+
+\subsubsection{Déterminant d'une matrice Hadamard}
+
+Si $\mathcal{M}$ est une matrice d'ordre $n$ dont les coefficients sont 1 
+et -1, alors d'aprés la majoration de Hadamard:
+\begin{equation}
+	\det(\mathcal{M}) \leq n^{\frac{n}{2}}
+\end{equation}
+$\mathcal{M}$ est une matrice d'Hadamard si et seulement si elle atteint 
+l'égalité d'Hadamard, c'est à dire: 
+$|\det(\mathcal{M})| = n^{\frac{n}{2}}$
+
 
 \subsection{Construction}
 
